@@ -7,8 +7,6 @@ import {
   Mail,
   ExternalLink,
   Download,
-  Briefcase,
-  GraduationCap,
   Award,
 } from 'lucide-react';
 
@@ -86,6 +84,7 @@ const projects = [
       'AI-powered pipeline integrity intelligence platform automating multi-run ILI analysis using KD-Tree search, Hungarian matching, and ML-based corrosion growth prediction. >95% time reduction with FastAPI backend (20+ REST APIs) and Angular dashboard.',
     tech: ['Python', 'FastAPI', 'Angular', 'Machine Learning', 'REST API'],
     link: 'https://github.com/Tupakulapavithra02/CorroSight',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Plant Leaf Disease Detection',
@@ -93,6 +92,7 @@ const projects = [
       'Supervised learning CNN model for image segmentation and plant disease classification. Achieved 92% accuracy, enabling early intervention and reducing estimated crop losses by 25%.',
     tech: ['Python', 'CNN', 'TensorFlow', 'Image Segmentation', 'ML'],
     link: 'https://github.com/Tupakulapavithra02/DETECTION-OF-PLANT-DISEASE-USING-MACHINE-LEARNING-',
+    image: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Suicide Analysis & Prevention',
@@ -100,6 +100,7 @@ const projects = [
       'Machine learning application analyzing data using multiple classifiers to identify at-risk patterns and support prevention strategies with improved prediction accuracy.',
     tech: ['Python', 'ML Classifiers', 'Data Analysis', 'Healthcare ML'],
     link: 'https://github.com/Tupakulapavithra02/Suicide-Analysis-and-Prevention-Application-Using-Machine-Learning-Classifiers',
+    image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Real-Time NER on Reddit',
@@ -107,6 +108,7 @@ const projects = [
       'Real-time Named Entity Recognition pipeline on live Reddit data, extracting and classifying entities such as people, organizations, and locations from social media text streams.',
     tech: ['Python', 'NLP', 'NER', 'Reddit API', 'Real-Time'],
     link: 'https://github.com/Tupakulapavithra02/Real-Time-Named-Entity-Recognition-on-Reddit',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Stock Price Prediction',
@@ -114,6 +116,7 @@ const projects = [
       'ML model using Random Forest and LSTM networks to forecast financial time-series stock prices. Achieved 85% prediction accuracy for better risk assessment and investment strategies.',
     tech: ['Python', 'LSTM', 'Random Forest', 'Time-Series', 'ML'],
     link: null,
+    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80',
   },
 ];
 
@@ -239,9 +242,10 @@ export default function FrozenPortfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-xl font-semibold ice-shimmer-text"
+            whileHover={{ letterSpacing: '0.05em' }}
+            className="text-xl font-semibold ice-shimmer-text cursor-default"
           >
-            ❄ Pavithra Tupakula
+            Pavithra Tupakula
           </motion.span>
           {/* <button
             onClick={() => setDarkMode(!darkMode)}
@@ -257,27 +261,43 @@ export default function FrozenPortfolio() {
       <main className="pt-20 pb-16 relative z-10">
 
         {/* ── Hero ── */}
-        <section className="max-w-5xl mx-auto px-6 py-24">
+        <section className="max-w-5xl mx-auto px-6 pt-12 pb-4">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9 }}
             className="space-y-6"
           >
-            <motion.h1
+            <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-5xl md:text-6xl font-bold ice-shimmer-text leading-tight"
+              className="flex items-center gap-4 flex-wrap"
             >
-              Hi, I'm Pavithra Tupakula
-            </motion.h1>
+              <motion.h1
+                whileHover={{ scale: 1.02, x: 8 }}
+                className="text-5xl md:text-6xl font-bold ice-shimmer-text leading-tight cursor-default"
+              >
+                Hi, I'm Pavithra Tupakula
+              </motion.h1>
+              <motion.span
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ delay: 0.6, type: 'spring', stiffness: 200 }}
+                whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
+                className="text-5xl md:text-6xl cursor-pointer"
+                title="Hi, I'm Olaf!"
+              >
+                ☃️
+              </motion.span>
+            </motion.div>
 
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-[#94a3b8] max-w-2xl text-lg leading-relaxed"
+              whileHover={{ color: '#e0f0ff', scale: 1.01 }}
+              className="text-[#94a3b8] max-w-2xl text-lg leading-relaxed cursor-default transition-colors duration-300"
             >
               MS Computer Science student at UT Dallas, specializing in Intelligent Systems.
               Passionate about AI/ML, full-stack development, and data-driven solutions.
@@ -313,7 +333,7 @@ export default function FrozenPortfolio() {
         </section>
 
         {/* ── Summary ── */}
-        <FrozenSection title="Summary">
+        <FrozenSection title="Summary" className="pt-2">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -344,21 +364,37 @@ export default function FrozenPortfolio() {
               <motion.div
                 key={i}
                 variants={item}
-                whileHover={{ scale: 1.03, y: -4 }}
-                className="ice-card rounded-2xl p-4"
+                whileHover={{
+                  scale: 1.05,
+                  y: -8,
+                  boxShadow: '0 0 35px rgba(43,108,238,0.2), 0 8px 30px rgba(0,0,0,0.4)'
+                }}
+                transition={{ type: 'spring', stiffness: 300 }}
+                className="ice-card rounded-2xl p-4 group cursor-pointer"
               >
-                <p className="text-xs font-semibold text-[#60a5fa] uppercase tracking-widest mb-3">
+                <motion.p
+                  className="text-xs font-semibold text-[#60a5fa] uppercase tracking-widest mb-3 cursor-default"
+                  whileHover={{ color: '#a5f3fc', letterSpacing: '0.15em' }}
+                  transition={{ duration: 0.2 }}
+                >
                   {group.category}
-                </p>
+                </motion.p>
                 <div className="flex flex-wrap gap-2">
                   {group.items.map((skill, j) => (
-                    <span
+                    <motion.span
                       key={j}
-                      className="px-2.5 py-1 rounded-lg text-xs text-[#bae6fd]"
+                      whileHover={{
+                        scale: 1.12,
+                        backgroundColor: 'rgba(43,108,238,0.35)',
+                        color: '#e0f0ff',
+                        boxShadow: '0 0 12px rgba(43,108,238,0.4)'
+                      }}
+                      transition={{ duration: 0.2 }}
+                      className="px-2.5 py-1 rounded-lg text-xs text-[#bae6fd] cursor-default"
                       style={{ background: 'rgba(43,108,238,0.15)', border: '1px solid rgba(96,165,250,0.25)' }}
                     >
                       {skill}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </motion.div>
@@ -379,34 +415,78 @@ export default function FrozenPortfolio() {
               <motion.div
                 key={i}
                 variants={item}
-                whileHover={{ scale: 1.04, y: -8 }}
-                className="ice-card rounded-2xl p-6 flex flex-col"
+                whileHover={{
+                  scale: 1.03,
+                  y: -8,
+                  boxShadow: '0 0 50px rgba(43,108,238,0.25), 0 12px 40px rgba(0,0,0,0.5)'
+                }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                className="ice-card rounded-2xl overflow-hidden flex flex-col group cursor-pointer"
               >
-                <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-base font-semibold text-[#e0f0ff] leading-snug">{project.title}</h3>
-                  {project.link && (
-                    <motion.a
-                      href={project.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      whileHover={{ scale: 1.2, rotate: 15 }}
-                      className="text-[#60a5fa] hover:text-[#a5f3fc] transition-colors shrink-0 ml-2"
+                {/* Project image */}
+                {project.image && (
+                  <div className="relative h-44 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    />
+                    {/* Frozen tint overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#0e2a5c]/30 via-[#060d1f]/10 to-[#060d1f]/75" />
+                    <div className="absolute inset-0 bg-[#1e40af]/15 mix-blend-multiply" />
+                    {/* ice shimmer on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                  </div>
+                )}
+
+                {/* Card content */}
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex justify-between items-start mb-2">
+                    <motion.h3
+                      className="text-base font-semibold text-[#e0f0ff] leading-snug"
+                      whileHover={{ color: '#a5f3fc', letterSpacing: '0.02em' }}
+                      transition={{ duration: 0.2 }}
                     >
-                      <ExternalLink className="w-4 h-4" />
-                    </motion.a>
-                  )}
-                </div>
-                <p className="text-[#94a3b8] text-sm mb-4 leading-relaxed flex-1">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t, j) => (
-                    <span
-                      key={j}
-                      className="px-2.5 py-0.5 rounded-full text-xs text-[#a5f3fc]"
-                      style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.2)' }}
-                    >
-                      {t}
-                    </span>
-                  ))}
+                      {project.title}
+                    </motion.h3>
+                    {project.link && (
+                      <motion.a
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        whileHover={{ scale: 1.3, rotate: 360 }}
+                        transition={{ duration: 0.4 }}
+                        className="text-[#60a5fa] hover:text-[#a5f3fc] transition-colors shrink-0 ml-2"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </motion.a>
+                    )}
+                  </div>
+                  <motion.p
+                    className="text-[#94a3b8] text-sm mb-4 leading-relaxed flex-1 cursor-default"
+                    whileHover={{ color: '#cbd5e1' }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {project.description}
+                  </motion.p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((t, j) => (
+                      <motion.span
+                        key={j}
+                        whileHover={{
+                          scale: 1.15,
+                          backgroundColor: 'rgba(43,108,238,0.25)',
+                          borderColor: 'rgba(96,165,250,0.5)',
+                          boxShadow: '0 0 15px rgba(43,108,238,0.3)'
+                        }}
+                        transition={{ duration: 0.2 }}
+                        className="px-2.5 py-0.5 rounded-full text-xs text-[#a5f3fc] cursor-default"
+                        style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.2)' }}
+                      >
+                        {t}
+                      </motion.span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -416,74 +496,238 @@ export default function FrozenPortfolio() {
         {/* ── Timeline ── */}
         <FrozenSection title="Experience &amp; Education">
           <div className="relative">
-            {/* Ice trail line */}
-            <div
-              className="absolute left-[31px] top-0 bottom-0 w-0.5 ice-timeline-line"
-            />
-            <div className="space-y-8">
-              {timeline.map((entry, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="relative pl-20"
-                >
-                  {/* Node */}
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 + 0.2, type: 'spring', stiffness: 200 }}
-                    whileHover={{ scale: 1.4, rotate: 180 }}
-                    className="absolute left-[20px] top-3 w-6 h-6 rounded-full flex items-center justify-center ice-glow"
-                    style={{
-                      background: entry.type === 'work'
-                        ? 'linear-gradient(135deg,#2b6cee,#60a5fa)'
-                        : 'linear-gradient(135deg,#0e7490,#a5f3fc)',
-                    }}
-                  >
-                    {entry.type === 'work'
-                      ? <Briefcase className="w-3 h-3 text-white" />
-                      : <GraduationCap className="w-3 h-3 text-white" />}
-                  </motion.div>
+            <div className="relative max-w-4xl mx-auto">
+              {/* Animated Ice Trail SVG */}
+              <svg
+                className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-24 pointer-events-none z-0"
+                viewBox="0 0 100 800"
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <linearGradient id="iceGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%"   stopColor="#60a5fa" />
+                    <stop offset="30%"  stopColor="#2b6cee" />
+                    <stop offset="60%"  stopColor="#a5f3fc" />
+                    <stop offset="100%" stopColor="#60a5fa" />
+                  </linearGradient>
 
-                  <motion.div
-                    whileHover={{ x: 6 }}
-                    className="ice-card rounded-2xl p-6"
-                  >
-                    <div className="flex justify-between items-start flex-wrap gap-2 mb-2">
-                      <div>
-                        <h3 className="text-base font-semibold text-[#e0f0ff] mb-1">{entry.title}</h3>
-                        <p className="text-[#60a5fa] text-sm">{entry.organization}</p>
-                      </div>
-                      <span
-                        className="px-3 py-1 rounded-full text-xs text-[#a5f3fc] whitespace-nowrap"
-                        style={{ background: 'rgba(43,108,238,0.15)', border: '1px solid rgba(96,165,250,0.25)' }}
-                      >
-                        {entry.period}
-                      </span>
-                    </div>
-                    <p className="text-[#94a3b8] text-sm mb-3">{entry.description}</p>
-                    <ul className="space-y-1">
-                      {entry.achievements.map((a, j) => (
-                        <motion.li
-                          key={j}
-                          initial={{ opacity: 0, x: -16 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: i * 0.1 + j * 0.08 }}
-                          className="text-sm text-[#94a3b8] flex items-start"
-                        >
-                          <span className="text-[#60a5fa] mr-2 mt-0.5">❄</span>
-                          {a}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                </motion.div>
+                  <pattern id="icePattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <circle cx="10" cy="10" r="1.5" fill="rgba(255,255,255,0.4)" />
+                    <circle cx="5"  cy="5"  r="1"   fill="rgba(165,243,252,0.3)" />
+                    <circle cx="15" cy="15" r="1"   fill="rgba(165,243,252,0.3)" />
+                    <circle cx="2"  cy="12" r="0.8" fill="rgba(255,255,255,0.2)" />
+                    <circle cx="18" cy="8"  r="0.8" fill="rgba(255,255,255,0.2)" />
+                  </pattern>
+
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                    <feMerge>
+                      <feMergeNode in="coloredBlur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+
+                  <filter id="iceGlow">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feSpecularLighting result="spec" in="blur" specularExponent="20" lighting-color="#a5f3fc">
+                      <fePointLight x="50" y="-100" z="200" />
+                    </feSpecularLighting>
+                    <feComposite in="spec" in2="SourceAlpha" operator="in" result="specOut" />
+                    <feMerge>
+                      <feMergeNode in="SourceGraphic" />
+                      <feMergeNode in="specOut" />
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                {/* Background glow path */}
+                <path
+                  d="M50,0 Q20,80 50,160 Q80,240 50,320 Q20,400 50,480 Q80,560 50,640 Q20,720 50,800"
+                  className="ice-trail-glow"
+                />
+
+                {/* Ice texture overlay */}
+                <motion.path
+                  d="M50,0 Q20,80 50,160 Q80,240 50,320 Q20,400 50,480 Q80,560 50,640 Q20,720 50,800"
+                  fill="none"
+                  stroke="url(#icePattern)"
+                  strokeWidth="12"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 0.7 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.5, delay: 0.5 }}
+                />
+
+                {/* Main animated path */}
+                <motion.path
+                  d="M50,0 Q20,80 50,160 Q80,240 50,320 Q20,400 50,480 Q80,560 50,640 Q20,720 50,800"
+                  className="ice-trail-path"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  whileInView={{ pathLength: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 2, ease: "easeInOut" }}
+                  filter="url(#iceGlow)"
+                  style={{ strokeDasharray: 1000, strokeDashoffset: 0 }}
+                />
+
+                {/* Animated shimmer along path */}
+                <motion.circle
+                  r="6"
+                  fill="#a5f3fc"
+                  filter="url(#glow)"
+                  initial={{ offsetDistance: '0%' }}
+                  whileInView={{ offsetDistance: '100%' }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1 }}
+                  style={{
+                    offsetPath: "path('M50,0 Q20,80 50,160 Q80,240 50,320 Q20,400 50,480 Q80,560 50,640 Q20,720 50,800')",
+                  }}
+                />
+              </svg>
+
+              {/* Sparkle dots along trail */}
+              {[
+                { top: '8%', left: '50%' },
+                { top: '22%', left: '42%' },
+                { top: '35%', left: '58%' },
+                { top: '48%', left: '42%' },
+                { top: '60%', left: '58%' },
+                { top: '72%', left: '42%' },
+                { top: '85%', left: '58%' },
+              ].map((pos, i) => (
+                <motion.span
+                  key={i}
+                  className="absolute w-2 h-2 rounded-full"
+                  style={{
+                    top: pos.top,
+                    left: pos.left,
+                    background: 'radial-gradient(circle, rgba(165,243,252,1) 0%, transparent 70%)',
+                    boxShadow: '0 0 10px rgba(165,243,252,0.8)',
+                  }}
+                  animate={{
+                    opacity: [0.3, 1, 0.3],
+                    scale: [0.8, 1.3, 0.8],
+                  }}
+                  transition={{
+                    duration: 2 + i * 0.3,
+                    repeat: Infinity,
+                    delay: i * 0.4,
+                    ease: "easeInOut",
+                  }}
+                />
               ))}
+
+              <div className="space-y-8 py-8">
+                {timeline.map((entry, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: i * 0.2, type: "spring", stiffness: 100 }}
+                    className={`flex items-center gap-8 ${i % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                  >
+                    {/* Card */}
+                    <motion.div
+                      whileHover={{
+                        scale: 1.03,
+                        boxShadow: '0 0 50px rgba(43,108,238,0.35), 0 12px 40px rgba(0,0,0,0.5), inset 0 0 30px rgba(255,255,255,0.05)'
+                      }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                      className={`ice-card rounded-2xl p-6 flex-1 relative overflow-hidden group cursor-pointer ${i % 2 === 0 ? 'mr-auto ml-0' : 'ml-auto mr-0'}`}
+                      style={{ maxWidth: '420px' }}
+                    >
+                      {/* Frost shimmer overlay */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
+                      />
+
+                      <div className="flex justify-between items-start flex-wrap gap-3 mb-3">
+                        <div className="flex-1">
+                          <motion.h3
+                            className="text-base font-semibold text-[#e0f0ff] mb-1 cursor-default"
+                            whileHover={{ color: '#a5f3fc', letterSpacing: '0.02em' }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {entry.title}
+                          </motion.h3>
+                          <motion.p
+                            className="text-[#60a5fa] text-sm flex items-center gap-2"
+                            whileHover={{ x: 4, color: '#93c5fd' }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <span className="opacity-60">❄</span>
+                            {entry.organization}
+                          </motion.p>
+                        </div>
+                        <motion.span
+                          whileHover={{ scale: 1.1, backgroundColor: 'rgba(43,108,238,0.25)' }}
+                          className="px-3 py-1 rounded-full text-xs text-[#a5f3fc] whitespace-nowrap"
+                          style={{ background: 'rgba(43,108,238,0.15)', border: '1px solid rgba(96,165,250,0.3)' }}
+                        >
+                          {entry.period}
+                        </motion.span>
+                      </div>
+
+                      <motion.p
+                        className="text-[#94a3b8] text-sm mb-3 leading-relaxed cursor-default"
+                        whileHover={{ color: '#cbd5e1' }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {entry.description}
+                      </motion.p>
+
+                      <ul className="space-y-1.5">
+                        {entry.achievements.map((a, j) => (
+                          <motion.li
+                            key={j}
+                            initial={{ opacity: 0, x: -15 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 + j * 0.08 }}
+                            whileHover={{ x: 6, color: '#e0f0ff' }}
+                            className="text-xs text-[#94a3b8] flex items-start gap-2 cursor-default group/item"
+                          >
+                            <motion.span
+                              className="text-[#60a5fa] mt-0.5"
+                              whileHover={{ scale: 1.4, rotate: 20 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              ❄
+                            </motion.span>
+                            <span className="group-hover/item:text-[#cbd5e1] transition-colors">{a}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+
+                      {/* Node connector point */}
+                      <motion.div
+                        className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full z-20 ${i % 2 === 0 ? '-right-10' : '-left-10'}`}
+                        style={{
+                          background: entry.type === 'work'
+                            ? 'linear-gradient(135deg,#2b6cee,#60a5fa,#a5f3fc)'
+                            : 'linear-gradient(135deg,#0891b2,#0e7490,#a5f3fc)',
+                          boxShadow: '0 0 20px rgba(96,165,250,0.8), inset 0 0 8px rgba(255,255,255,0.5)',
+                          border: '2px solid rgba(165,243,252,0.6)',
+                        }}
+                        whileHover={{ scale: 1.5, rotate: 360 }}
+                        transition={{ duration: 0.4 }}
+                      >
+                        <motion.span
+                          className="absolute -top-1 -right-1 text-[10px]"
+                          animate={{ opacity: [0, 1, 0], scale: [0.5, 1, 0.5] }}
+                          transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+                        >
+                          ✨
+                        </motion.span>
+                      </motion.div>
+                    </motion.div>
+
+                    {/* Spacer for alternating layout */}
+                    <div className="w-24 flex-shrink-0" />
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </FrozenSection>
@@ -565,24 +809,27 @@ export default function FrozenPortfolio() {
               >
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-3">
                   {(['name', 'email'] as const).map((field) => (
-                    <input
-                      key={field}
-                      type={field === 'email' ? 'email' : 'text'}
-                      required
-                      value={formData[field]}
-                      onChange={(e) => setFormData({ ...formData, [field]: e.target.value })}
-                      placeholder={field === 'email' ? 'Email address' : 'Your name'}
-                      className="w-full px-4 py-2.5 rounded-xl text-sm ice-input"
-                    />
+                    <SparkleInput key={field}>
+                      <input
+                        type={field === 'email' ? 'email' : 'text'}
+                        required
+                        value={formData[field]}
+                        onChange={(e) => setFormData({ ...formData, [field]: e.target.value })}
+                        placeholder={field === 'email' ? 'Email address' : 'Your name'}
+                        className="w-full px-4 py-2.5 rounded-xl text-sm ice-input"
+                      />
+                    </SparkleInput>
                   ))}
-                  <textarea
-                    required
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Your message..."
-                    className="w-full px-4 py-2.5 rounded-xl text-sm ice-input resize-none"
-                  />
+                  <SparkleInput>
+                    <textarea
+                      required
+                      rows={4}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Your message..."
+                      className="w-full px-4 py-2.5 rounded-xl text-sm ice-input resize-none"
+                    />
+                  </SparkleInput>
 
                   {formState === 'success' && (
                     <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-sm text-[#a5f3fc] text-center">
@@ -633,24 +880,101 @@ export default function FrozenPortfolio() {
 // Helpers
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// SparkleInput — spawns ice-crystal sparkles on hover
+// ---------------------------------------------------------------------------
+
+type Sparkle = { id: number; x: number; y: number; size: number; char: string };
+
+function SparkleInput({ children }: { children: React.ReactNode }) {
+  const [sparkles, setSparkles] = useState<Sparkle[]>([]);
+  const [hovered, setHovered] = useState(false);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const chars = ['✦', '✧', '❄', '❅', '·'];
+
+  useEffect(() => {
+    if (hovered) {
+      intervalRef.current = setInterval(() => {
+        setSparkles(prev => [
+          ...prev.slice(-10),
+          {
+            id: Date.now() + Math.random(),
+            x: Math.random() * 96 + 2,   // 2–98 % width
+            y: Math.random() * 80 + 10,  // 10–90 % height
+            size: Math.random() * 9 + 7,
+            char: chars[Math.floor(Math.random() * chars.length)],
+          },
+        ]);
+      }, 120);
+    } else {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      setTimeout(() => setSparkles([]), 700);
+    }
+    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hovered]);
+
+  return (
+    <div
+      className="relative rounded-xl"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div className="ice-input-shimmer rounded-xl">{children}</div>
+
+      {sparkles.map(s => (
+        <motion.span
+          key={s.id}
+          className="absolute pointer-events-none select-none font-bold"
+          style={{
+            left: `${s.x}%`,
+            top: `${s.y}%`,
+            fontSize: s.size,
+            color: '#a5f3fc',
+            textShadow: '0 0 8px rgba(165,243,252,0.9), 0 0 20px rgba(96,165,250,0.6)',
+            zIndex: 10,
+          }}
+          initial={{ opacity: 0, scale: 0, rotate: -30 }}
+          animate={{ opacity: [0, 1, 1, 0], scale: [0, 1.2, 0.9, 0], rotate: [0, 45, 90] }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+        >
+          {s.char}
+        </motion.span>
+      ))}
+    </div>
+  );
+}
+
 function IceSectionTitle({ children }: { children: React.ReactNode }) {
   return (
     <motion.h2
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
-      className="text-xl font-semibold text-[#e0f0ff] mb-6 pb-2 flex items-center gap-2"
+      whileHover={{
+        x: 10,
+        letterSpacing: '0.05em',
+        textShadow: '0 0 20px rgba(165,243,252,0.5)'
+      }}
+      transition={{ duration: 0.3 }}
+      className="text-xl font-semibold text-[#e0f0ff] mb-6 pb-2 flex items-center gap-2 cursor-default group"
       style={{ borderBottom: '1px solid rgba(96,165,250,0.2)' }}
     >
-      <span className="text-[#60a5fa] text-sm">❄</span>
+      <motion.span
+        className="text-[#60a5fa] text-sm"
+        whileHover={{ scale: 1.5, rotate: 360 }}
+        transition={{ duration: 0.6 }}
+      >
+        ❄
+      </motion.span>
       <span dangerouslySetInnerHTML={{ __html: String(children) }} />
     </motion.h2>
   );
 }
 
-function FrozenSection({ title, children }: { title: string; children: React.ReactNode }) {
+function FrozenSection({ title, children, className }: { title: string; children: React.ReactNode; className?: string }) {
   return (
-    <section className="max-w-5xl mx-auto px-6 py-12">
+    <section className={`max-w-5xl mx-auto px-6 py-12 ${className ?? ''}`}>
       <IceSectionTitle>{title}</IceSectionTitle>
       {children}
     </section>

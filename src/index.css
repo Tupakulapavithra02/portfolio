@@ -105,16 +105,48 @@
 }
 
 .ice-card {
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(96,165,250,0.18);
-  transition: border-color .3s, box-shadow .3s;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.08) 0%,
+    rgba(255,255,255,0.03) 50%,
+    rgba(96,165,250,0.05) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(165,243,252,0.25);
+  border-radius: 16px;
+  transition: all .4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ice-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.1),
+    transparent
+  );
+  transition: left 0.6s ease;
 }
 
 .ice-card:hover {
-  border-color: rgba(96,165,250,0.5);
-  box-shadow: 0 0 24px rgba(43,108,238,.3), 0 8px 32px rgba(0,0,0,.4);
+  border-color: rgba(165,243,252,0.5);
+  box-shadow:
+    0 0 40px rgba(43,108,238,.25),
+    0 8px 32px rgba(0,0,0,.4),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+}
+
+.ice-card:hover::before {
+  left: 100%;
 }
 
 .ice-glow {
@@ -139,6 +171,98 @@
   box-shadow: 0 0 8px rgba(96,165,250,.5);
 }
 
+/* Animated ice trail path */
+.ice-trail-path {
+  fill: none;
+  stroke: url(#iceGradient);
+  stroke-width: 4;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 10px rgba(96,165,250,0.9)) drop-shadow(0 0 25px rgba(165,243,252,0.6));
+}
+
+.ice-trail-glow {
+  fill: none;
+  stroke: rgba(165,243,252,0.25);
+  stroke-width: 16;
+  stroke-linecap: round;
+  filter: blur(12px);
+}
+
+/* Ice texture pattern for trail */
+.ice-texture {
+  fill: url(#icePattern);
+  opacity: 0.6;
+}
+
+/* Olaf cursor companion */
+.olaf-companion {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  font-size: 2.5rem;
+  filter: drop-shadow(0 0 10px rgba(165,243,252,0.5));
+  transition: transform 0.15s ease-out;
+}
+
+.olaf-companion.happy {
+  animation: olafHappy 0.5s ease-in-out;
+}
+
+@keyframes olafHappy {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.2) rotate(-10deg); }
+  50% { transform: scale(1.2) rotate(10deg); }
+  75% { transform: scale(1.1) rotate(-5deg); }
+}
+
+/* Input shimmer effect */
+.ice-input-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.ice-input-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(165,243,252,0.2),
+    rgba(255,255,255,0.3),
+    rgba(165,243,252,0.2),
+    transparent
+  );
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.ice-input-shimmer:hover::before {
+  left: 100%;
+}
+
+@keyframes trailFlow {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.sparkle-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, rgba(165,243,252,1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
 .ice-input {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(96,165,250,0.25);
@@ -153,3 +277,41 @@
 }
 
 .ice-input::placeholder { color: rgba(148,163,184,0.6); }
+
+/* Frozen glass effect on hover for text inputs */
+.ice-input:hover {
+  border-color: rgba(165,243,252,0.45);
+  background: rgba(165,243,252,0.07);
+  box-shadow:
+    0 0 28px rgba(96,165,250,0.2),
+    inset 0 0 20px rgba(165,243,252,0.06),
+    0 0 0 1px rgba(165,243,252,0.18);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+}
+
+.ice-input-shimmer {
+  position: relative;
+  border-radius: 0.75rem;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.ice-input-shimmer:hover {
+  box-shadow:
+    0 0 35px rgba(96,165,250,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    0 6px 20px rgba(0,0,0,0.25);
+  background: rgba(165,243,252,0.04);
+}
+
+/* frost crystal corners on hover */
+.ice-input-shimmer:hover::after {
+  content: '❄';
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: 10px;
+  color: rgba(165,243,252,0.7);
+  pointer-events: none;
+  animation: sparkle 1.5s ease-in-out infinite;
+}
