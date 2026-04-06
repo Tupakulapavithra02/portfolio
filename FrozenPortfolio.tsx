@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import type { Variants, Easing } from 'framer-motion';
 import {
-  Moon,
-  Sun,
+  // Moon,
+  // Sun,
   Mail,
   ExternalLink,
   Download,
@@ -188,7 +188,7 @@ const item: Variants = {
 // ---------------------------------------------------------------------------
 
 export default function FrozenPortfolio() {
-  const [darkMode, setDarkMode] = useState(true);
+  // const [darkMode, setDarkMode] = useState(true);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [formState, setFormState] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const formRef = useRef<HTMLFormElement>(null);
