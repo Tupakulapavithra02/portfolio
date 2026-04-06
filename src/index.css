@@ -65,3 +65,91 @@
     font-size: var(--font-size);
   }
 }
+
+/* ── Frozen theme ── */
+.frozen-bg {
+  background: radial-gradient(ellipse at 20% 20%, #0e2a5c 0%, #060d1f 60%);
+  font-family: 'Epilogue', sans-serif;
+}
+
+@keyframes snowfall {
+  0%   { transform: translateY(-10px) rotate(0deg);   opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes sway {
+  0%, 100% { margin-left: 0; }
+  50%       { margin-left: 30px; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 12px rgba(43,108,238,.35), 0 0 30px rgba(43,108,238,.15); }
+  50%       { box-shadow: 0 0 24px rgba(43,108,238,.6),  0 0 60px rgba(43,108,238,.3); }
+}
+
+.snowflake {
+  position: fixed;
+  top: -20px;
+  color: rgba(255,255,255,0.7);
+  user-select: none;
+  pointer-events: none;
+  animation: snowfall linear infinite, sway ease-in-out infinite;
+  z-index: 0;
+}
+
+.ice-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(96,165,250,0.18);
+  transition: border-color .3s, box-shadow .3s;
+}
+
+.ice-card:hover {
+  border-color: rgba(96,165,250,0.5);
+  box-shadow: 0 0 24px rgba(43,108,238,.3), 0 8px 32px rgba(0,0,0,.4);
+}
+
+.ice-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.ice-shimmer-text {
+  background: linear-gradient(90deg, #a5f3fc, #60a5fa, #2b6cee, #60a5fa, #a5f3fc);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.ice-timeline-line {
+  background: linear-gradient(180deg,
+    rgba(96,165,250,0.8) 0%,
+    rgba(43,108,238,0.6) 40%,
+    rgba(165,243,252,0.4) 80%,
+    transparent 100%);
+  box-shadow: 0 0 8px rgba(96,165,250,.5);
+}
+
+.ice-input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(96,165,250,0.25);
+  color: #e0f0ff;
+  transition: border-color .3s, box-shadow .3s;
+}
+
+.ice-input:focus {
+  outline: none;
+  border-color: rgba(96,165,250,0.7);
+  box-shadow: 0 0 0 3px rgba(43,108,238,0.25), 0 0 16px rgba(43,108,238,0.3);
+}
+
+.ice-input::placeholder { color: rgba(148,163,184,0.6); }

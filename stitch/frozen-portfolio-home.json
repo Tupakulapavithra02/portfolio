@@ -1,0 +1,18 @@
+{
+  "project_id": "15120103065344634611",
+  "screen_id": "1965976c234e47768c527305c10eb3f0",
+  "title": "Frozen Themed Portfolio Home",
+  "size": { "width": 768, "height": 1376 },
+  "device": "DESKTOP",
+  "agent": "IMAGE_PRO_AGENT",
+  "screenshot": "frozen-portfolio-home.png",
+  "screenshot_url": "https://lh3.googleusercontent.com/aida/ADBb0uiNHohpKWPt1E8I5_4YDifj3AslaiPncNUIWic2LrJ_O7v2Sy9yxJZ75IPxzrx__kKxCndHzSUvEdr-E4iPqRcFa7Nh8N9NIYKxtlAKV99lv8hJfiTe6RlyqHzYM2JXhZSy2vsXC15humZMX-IMXllpVFjHmbJq34-EDsV_RRiEBOU0Cy9jd-dYuiDWPVBmMXXXLLN4R8FGNDnbyGOHOPsDo715DT00PQp7VmLhptzS32YYe4PAPnOqTpR3",
+  "design_theme": {
+    "colorMode": "LIGHT",
+    "font": "EPILOGUE",
+    "roundness": "ROUND_TWELVE",
+    "customColor": "#2b6cee",
+    "saturation": 3
+  },
+  "prompt": "Title: Frozen Themed Portfolio Home\nContext: Personal portfolio website for a computer science student, themed with a Frozen movie aesthetic.\nDescription of the screen: A modern desktop portfolio homepage inspired by the movie 'Frozen'. The design uses a cool color palette of ice blue, crisp white, and deep navy. The header features a subtle crystalline background pattern. Sections like 'Skills' and 'Projects' are housed in cards with semi-transparent frosted glass effects (glassmorphism) and soft blue glows. Typography is clean and professional but with elegant, slightly whimsical headings. Include snowflake-inspired icons for social links. The 'Experience' timeline uses a shimmering ice trail line. The 'Get In Touch' form has a soft, glowing border reminiscent of Elsa's magic. overall feel is magical yet clean and professional.\nPlatform: web\nForm factor: desktop"
+}
