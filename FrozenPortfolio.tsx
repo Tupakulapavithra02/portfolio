@@ -165,9 +165,21 @@ const timeline = [
 ];
 
 const certifications = [
-  { title: 'Prompt Design in Vertex AI Skill Badge', issuer: 'Google Cloud' },
-  { title: 'MTA: Introduction to Programming Using Python', issuer: 'Microsoft' },
-  { title: "Eric Jonson's Dean Scholarship", issuer: 'UT Dallas (2024–2025)' },
+  {
+    title: 'Prompt Design in Vertex AI Skill Badge',
+    issuer: 'Google Cloud',
+    link: 'https://www.credly.com/badges/46966254-0004-4ee7-a4bf-f8c2cbe4b75f/public_url',
+  },
+  {
+    title: 'MTA: Introduction to Programming Using Python',
+    issuer: 'Microsoft',
+    link: 'https://www.credly.com/badges/741be0fe-917c-4d53-ae0f-09a6b9d791ec/public_url',
+  },
+  {
+    title: "Eric Jonson's Dean Scholarship",
+    issuer: 'UT Dallas (2024–2025)',
+    link: '',
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -742,18 +754,29 @@ export default function FrozenPortfolio() {
             className="grid gap-4 md:grid-cols-3"
           >
             {certifications.map((cert, i) => (
-              <motion.div
+              <motion.a
                 key={i}
                 variants={item}
-                whileHover={{ scale: 1.04, y: -4 }}
-                className="ice-card rounded-2xl p-4 flex items-start gap-3"
+                href={cert.link || undefined}
+                target={cert.link ? '_blank' : undefined}
+                rel="noreferrer"
+                whileHover={{ scale: 1.04, y: -4, boxShadow: cert.link ? '0 0 30px rgba(43,108,238,0.3), 0 8px 24px rgba(0,0,0,0.4)' : undefined }}
+                className={`ice-card rounded-2xl p-4 flex items-start gap-3 group ${cert.link ? 'cursor-pointer' : 'cursor-default'}`}
+                style={{ textDecoration: 'none' }}
               >
                 <Award className="w-5 h-5 text-[#60a5fa] shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-sm font-medium text-[#e0f0ff] leading-snug">{cert.title}</p>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-medium text-[#e0f0ff] leading-snug group-hover:text-[#a5f3fc] transition-colors duration-200">
+                    {cert.title}
+                  </p>
                   <p className="text-xs text-[#60a5fa] mt-1">{cert.issuer}</p>
+                  {cert.link && (
+                    <p className="text-[10px] text-[#a5f3fc]/50 mt-1.5 flex items-center gap-1 group-hover:text-[#a5f3fc]/80 transition-colors duration-200">
+                      <ExternalLink className="w-2.5 h-2.5" /> View Certificate
+                    </p>
+                  )}
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </motion.div>
         </FrozenSection>
