@@ -121,12 +121,12 @@ const projects = [
 ];
 
 const skills = [
-  { category: 'Languages',    items: ['Python', 'Java', 'JavaScript', 'TypeScript', 'SQL', 'Bash', 'C', 'HTML'] },
-  { category: 'Full Stack',   items: ['ReactJS', 'FastAPI', 'Spring Boot', 'RESTful APIs', 'PyTorch', 'TensorFlow'] },
-  { category: 'Data & AI',    items: ['Machine Learning', 'NLP', 'ETL Pipelines', 'Time-Series', 'Anomaly Detection', 'Tableau'] },
-  { category: 'Cloud & Infra',items: ['AWS (EC2, S3, Lambda, Redshift, Glue)', 'Spark', 'Databricks', 'Kubernetes', 'Linux'] },
+  { category: 'Languages', items: ['Python', 'Java', 'JavaScript', 'TypeScript', 'SQL', 'Bash', 'C', 'HTML'] },
+  { category: 'Full Stack', items: ['ReactJS', 'FastAPI', 'Spring Boot', 'RESTful APIs', 'PyTorch', 'TensorFlow'] },
+  { category: 'Data & AI', items: ['Machine Learning', 'NLP', 'ETL Pipelines', 'Time-Series', 'Anomaly Detection', 'Tableau'] },
+  { category: 'Cloud & Infra', items: ['AWS (EC2, S3, Lambda, Redshift, Glue)', 'Spark', 'Databricks', 'Kubernetes', 'Linux'] },
   { category: 'GenAI & LLMs', items: ['LangChain', 'RAG', 'OpenAI API', 'Prompt Engineering', 'LLMs'] },
-  { category: 'Engineering',  items: ['Agile SDLC', 'Git', 'Unit/Integration Testing', 'Design Patterns', 'CI/CD'] },
+  { category: 'Engineering', items: ['Agile SDLC', 'Git', 'Unit/Integration Testing', 'Design Patterns', 'CI/CD'] },
 ];
 
 const timeline = [
@@ -140,7 +140,7 @@ const timeline = [
   },
   {
     type: 'education' as const,
-    title: "Master's in CS & Information Technology",
+    title: "Master's in Computer and Information Sciences",
     organization: 'University of Texas at Dallas, USA',
     period: 'Aug 2024 – May 2026',
     description: 'Specialization in Intelligent Systems. Dean Scholarship recipient.',
@@ -322,9 +322,9 @@ export default function FrozenPortfolio() {
               className="flex gap-4"
             >
               {([
-                { Icon: Github,   href: LINKS.github,   label: 'GitHub' },
+                { Icon: Github, href: LINKS.github, label: 'GitHub' },
                 { Icon: Linkedin, href: LINKS.linkedin, label: 'LinkedIn' },
-                { Icon: Mail,     href: LINKS.email,    label: 'Email' },
+                { Icon: Mail, href: LINKS.email, label: 'Email' },
               ] as const).map(({ Icon, href, label }) => (
                 <motion.a
                   key={label}
@@ -517,18 +517,18 @@ export default function FrozenPortfolio() {
               >
                 <defs>
                   <linearGradient id="iceGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%"   stopColor="#60a5fa" />
-                    <stop offset="30%"  stopColor="#2b6cee" />
-                    <stop offset="60%"  stopColor="#a5f3fc" />
+                    <stop offset="0%" stopColor="#60a5fa" />
+                    <stop offset="30%" stopColor="#2b6cee" />
+                    <stop offset="60%" stopColor="#a5f3fc" />
                     <stop offset="100%" stopColor="#60a5fa" />
                   </linearGradient>
 
                   <pattern id="icePattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
                     <circle cx="10" cy="10" r="1.5" fill="rgba(255,255,255,0.4)" />
-                    <circle cx="5"  cy="5"  r="1"   fill="rgba(165,243,252,0.3)" />
-                    <circle cx="15" cy="15" r="1"   fill="rgba(165,243,252,0.3)" />
-                    <circle cx="2"  cy="12" r="0.8" fill="rgba(255,255,255,0.2)" />
-                    <circle cx="18" cy="8"  r="0.8" fill="rgba(255,255,255,0.2)" />
+                    <circle cx="5" cy="5" r="1" fill="rgba(165,243,252,0.3)" />
+                    <circle cx="15" cy="15" r="1" fill="rgba(165,243,252,0.3)" />
+                    <circle cx="2" cy="12" r="0.8" fill="rgba(255,255,255,0.2)" />
+                    <circle cx="18" cy="8" r="0.8" fill="rgba(255,255,255,0.2)" />
                   </pattern>
 
                   <filter id="glow">
@@ -934,7 +934,7 @@ function SparkleInput({ children }: { children: React.ReactNode }) {
       setTimeout(() => setSparkles([]), 700);
     }
     return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hovered]);
 
   return (
